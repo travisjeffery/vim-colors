@@ -1,5 +1,5 @@
-" Vim color file
-" Converted from Textmate theme Xcode Dusk using Coloration v0.2.5 (http://github.com/sickill/coloration)
+" Vim Dusk Colorscheme by Travis Jeffery
+" Inspiration from Xcode's dusk
 
 set background=dark
 highlight clear
@@ -25,6 +25,10 @@ hi IncSearch  guifg=NONE guibg=#4f1d48 gui=NONE
 hi Search  guifg=NONE guibg=#4f1d48 gui=NONE
 hi Directory  guifg=#83c057 guibg=NONE gui=NONE
 hi Folded  guifg=#41b645 guibg=#1e2028 gui=NONE
+
+hi FoldColumn  guifg=#ffffff guibg=#1e2028 gui=NONE
+hi SignColumn  guifg=#ffffff guibg=#1e2028 gui=NONE
+hi NonText  guifg=#1c1e25 guibg=#1c1e25 gui=NONE
 
 hi Normal  guifg=#ffffff guibg=#1e2028 gui=NONE
 hi Boolean  guifg=#b21988 guibg=NONE gui=NONE
