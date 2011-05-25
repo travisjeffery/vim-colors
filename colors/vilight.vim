@@ -104,3 +104,8 @@ hi DiffAdd        guifg=#8f9d6a          guibg=NONE
 hi DiffChange     guifg=#cda869          guibg=NONE
 hi DiffText       guifg=#b6b6b6          guibg=NONE
 hi DiffDelete     guifg=#cf6a4c          guibg=NONE
+
+hi Folded  guifg=#5f5a60 guibg=#212121 gui=NONE
+hi SignColumn  guifg=#ffffff guibg=#212121 gui=NONE
+hi NonText  guifg=#212121 guibg=#212121 gui=NONE
+hi FoldColumn  guifg=#ffffff guibg=#212121 gui=NONE
