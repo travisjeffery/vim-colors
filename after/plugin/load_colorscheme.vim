@@ -1,1 +1,1 @@
-colorscheme elflord
+colorscheme made_of_color
