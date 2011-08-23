@@ -3,8 +3,7 @@
 "
 " Hex colour conversion functions borrowed from the theme "Desert256""
 
-let colours_name = "Tomorrow-Night"
-
+" Default GUI Colours
 let s:foreground = "c5c8c6"
 let s:background = "1d1f21"
 let s:selection = "373b41"
@@ -17,9 +16,18 @@ let s:green = "b5bd68"
 let s:blue = "81a2be"
 let s:purple = "b294bb"
 
+" Console 256 Colours
+if !has("gui_running")
+	let s:background = "303030"
+	let s:line = "3a3a3a"
+	let s:selection = "585858"
+end
+
 set background=dark
 hi clear
 syntax reset
+
+let g:colors_name = "Tomorrow-Night"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" Returns an approximate grey index for the given grey level
@@ -234,10 +242,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("LineNr", s:foreground, "", "")
 	call <SID>X("NonText", s:selection, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
-	call <SID>X("Search", s:foreground, s:selection, "")
+	call <SID>X("Search", s:background, s:yellow, "")
 	call <SID>X("StatusLine", s:foreground, s:background, "reverse")
 	call <SID>X("StatusLineNC", s:foreground, s:background, "reverse")
-	call <SID>X("Visual", s:foreground, s:selection, "")
+	call <SID>X("Visual", "", s:selection, "")
 	call <SID>X("Directory", s:blue, "", "")
 	call <SID>X("ModeMsg", s:green, "", "")
     call <SID>X("MoreMsg", s:green, "", "")
@@ -245,6 +253,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("WarningMsg", s:red, "", "")
 	if version >= 700
 		call <SID>X("CursorLine", "", s:line, "none")
+		call <SID>X("CursorColumn", "", s:line, "none")
 		call <SID>X("PMenu", s:foreground, s:selection, "none")
 		call <SID>X("PMenuSel", s:foreground, s:selection, "reverse")
 	end
@@ -266,6 +275,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Operator", s:foreground, "", "none")
 	call <SID>X("Type", s:blue, "", "none")
 	call <SID>X("Define", s:purple, "", "none")
+	call <SID>X("Include", s:blue, "", "") 
 	"call <SID>X("Ignore", "666666", "", "")
 	
 	" Vim Highlighting
@@ -278,13 +288,18 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" PHP Highlighting
 	call <SID>X("phpVarSelector", s:red, "", "")
 	call <SID>X("phpKeyword", s:purple, "", "")
+	call <SID>X("phpRepeat", s:purple, "", "")
+	call <SID>X("phpConditional", s:purple, "", "")
+	call <SID>X("phpStatement", s:purple, "", "")
+	call <SID>X("phpMemberSelector", s:foreground, "", "")
 	
 	" Ruby Highlighting
-	call <SID>X("rubySymbol", s:green, "", "")	
-	call <SID>X("rubyConstant", s:yellow, "", "")	
-	call <SID>X("rubyAttribute", s:blue, "", "")	
-	call <SID>X("rubyLocalVariableOrMethod", s:blue, "", "")	
-	call <SID>X("rubyCurlyBlock", s:orange, "", "") 
+	call <SID>X("rubySymbol", s:green, "", "")
+	call <SID>X("rubyConstant", s:yellow, "", "")
+	call <SID>X("rubyAttribute", s:blue, "", "")
+	call <SID>X("rubyInclude", s:blue, "", "")
+	call <SID>X("rubyLocalVariableOrMethod", s:orange, "", "")
+	call <SID>X("rubyCurlyBlock", s:orange, "", "")
 
 	" Delete Functions
 	delf <SID>X
